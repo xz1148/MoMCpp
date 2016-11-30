@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1480548936 source:/home/xt/Documents/momcpp/main.cpp
+	<iostream>
+	"Charge.hpp"
+
+1480548702 /home/xt/Documents/momcpp/Charge.hpp
+	<cmath>
+	"EMConst.hpp"
+
+1480548959 source:/home/xt/Documents/momcpp/Charge.cpp
+	"Charge.hpp"
+
+1480547520 /home/xt/Documents/momcpp/EMConst.hpp
+	<cmath>
+

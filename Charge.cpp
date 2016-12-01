@@ -1,4 +1,5 @@
 #include "Charge.hpp"
+#include <iostream>
 
 Charge::Charge()
 {
@@ -66,4 +67,17 @@ double Charge::r(double x, double y, double z)
     double mag_r_sqr = r_x*r_x + r_y*r_y + r_z*r_z;
     double mag_r = std::sqrt(mag_r_sqr);
     return mag_r;
+}
+
+std::complex<double> Greens(double k0, double r)
+{
+    if (r==0.0)
+    {
+        std::cerr << "Warning: the field is estimating at singular point" << std::endl;
+    }
+    std::complex<double> alpha = -1.0i*k0*r;
+    std::complex<double> Greens_numerator = -std::exp(alpha);
+    std::complex<double> Greens_denominator = 4.0*PI*r;
+    std::complex<double> Greens_total = Greens_numerator / Greens_denominator;
+    return Greens_total;
 }

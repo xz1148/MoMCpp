@@ -3,6 +3,10 @@
 #include <cmath>
 #include "EMConst.hpp"
 
+std::complex<double> Greens(double k0, double r);
+void GradGreensr(std::complex<double> dGdr_r[3], double k0, double r);
+
+
 class Charge
 {
 private:

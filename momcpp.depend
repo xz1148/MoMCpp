@@ -15,3 +15,42 @@
 	<cmath>
 	<complex>
 
+1480605106 source:/home/xt/Documents/MoMcpp/Charge.cpp
+	"Charge.hpp"
+	"Greens.hpp"
+	<iostream>
+
+1480596581 /home/xt/Documents/MoMcpp/Charge.hpp
+	<cmath>
+	"EMConst.hpp"
+
+1480523724 /home/xt/Documents/MoMcpp/EMConst.hpp
+	<cmath>
+	<complex>
+
+1480607945 source:/home/xt/Documents/MoMcpp/main.cpp
+	<iostream>
+	"Charge.hpp"
+	"PrintArray.hpp"
+	"Current.hpp"
+
+1480594887 /home/xt/Documents/MoMcpp/PrintArray.hpp
+
+1480608783 source:/home/xt/Documents/MoMcpp/Current.cpp
+	"Current.hpp"
+	"Greens.hpp"
+	<cmath>
+	<iostream>
+	"EMConst.hpp"
+
+1480607198 /home/xt/Documents/MoMcpp/Current.hpp
+	<complex>
+
+1480604710 /home/xt/Documents/MoMcpp/Greens.hpp
+	<cmath>
+	<complex>
+
+1480605506 source:/home/xt/Documents/MoMcpp/Greens.cpp
+	"Greens.hpp"
+	<cmath>
+

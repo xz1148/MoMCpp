@@ -32,11 +32,15 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Array2D.cpp" />
+		<Unit filename="Array2D.hpp" />
 		<Unit filename="Charge.cpp" />
 		<Unit filename="Charge.hpp" />
 		<Unit filename="Current.cpp" />
 		<Unit filename="Current.hpp" />
 		<Unit filename="EMConst.hpp" />
+		<Unit filename="GLQuad.cpp" />
+		<Unit filename="GLQuad.hpp" />
 		<Unit filename="Greens.cpp" />
 		<Unit filename="Greens.hpp" />
 		<Unit filename="PrintArray.hpp" />

@@ -1,17 +1,22 @@
 # depslib dependency file v1.0
-1480553686 source:/home/xt/Documents/momcpp/main.cpp
+1480818267 source:/home/xt/Documents/momcpp/main.cpp
 	<iostream>
 	"Charge.hpp"
+	"PrintArray.hpp"
+	"Current.hpp"
+	"GLQuad.hpp"
+	"Array2D.hpp"
 
-1480554027 /home/xt/Documents/momcpp/Charge.hpp
+1480797627 /home/xt/Documents/momcpp/Charge.hpp
 	<cmath>
 	"EMConst.hpp"
 
-1480553846 source:/home/xt/Documents/momcpp/Charge.cpp
+1480797627 source:/home/xt/Documents/momcpp/Charge.cpp
 	"Charge.hpp"
+	"Greens.hpp"
 	<iostream>
 
-1480552691 /home/xt/Documents/momcpp/EMConst.hpp
+1480797627 /home/xt/Documents/momcpp/EMConst.hpp
 	<cmath>
 	<complex>
 
@@ -53,4 +58,46 @@
 1480605506 source:/home/xt/Documents/MoMcpp/Greens.cpp
 	"Greens.hpp"
 	<cmath>
+
+1480797627 /home/xt/Documents/momcpp/Greens.hpp
+	<cmath>
+	<complex>
+
+1480797627 source:/home/xt/Documents/momcpp/Current.cpp
+	"Current.hpp"
+	"Greens.hpp"
+	<cmath>
+	<iostream>
+	"EMConst.hpp"
+
+1480797627 /home/xt/Documents/momcpp/Current.hpp
+	<complex>
+
+1480797627 source:/home/xt/Documents/momcpp/Greens.cpp
+	"Greens.hpp"
+	<cmath>
+
+1480797627 /home/xt/Documents/momcpp/PrintArray.hpp
+
+1480818231 source:/home/xt/Documents/momcpp/GLQuad.cpp
+	"GLQuad.hpp"
+	"Array2D.hpp"
+	<cassert>
+
+1480818314 /home/xt/Documents/momcpp/GLQuad.hpp
+	<cstdlib>
+	<cmath>
+	<iostream>
+	<fstream>
+	<iomanip>
+	<ctime>
+	<cstring>
+	"Array2D.hpp"
+
+1480818145 source:/home/xt/Documents/momcpp/Array2D.cpp
+	"Array2D.hpp"
+	<cassert>
+
+1480818149 /home/xt/Documents/momcpp/Array2D.hpp
+	<iostream>
 

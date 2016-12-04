@@ -2,14 +2,139 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
+	<File name="Greens.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="465" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="main.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1871" topLine="46" />
+		</Cursor>
+	</File>
+	<File name="Array2D.hpp" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="227" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Charge.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1172" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Array2D.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1674" topLine="63" />
+		</Cursor>
+		<Folding>
+			<Collapse line="4" />
+			<Collapse line="13" />
+			<Collapse line="16" />
+		</Folding>
+	</File>
+	<File name="GLQuad.cpp" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1846" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="28" />
+			<Collapse line="211" />
+			<Collapse line="225" />
+			<Collapse line="230" />
+			<Collapse line="308" />
+			<Collapse line="329" />
+			<Collapse line="337" />
+			<Collapse line="343" />
+			<Collapse line="348" />
+			<Collapse line="355" />
+			<Collapse line="359" />
+			<Collapse line="365" />
+			<Collapse line="370" />
+			<Collapse line="376" />
+			<Collapse line="382" />
+			<Collapse line="387" />
+			<Collapse line="398" />
+			<Collapse line="407" />
+			<Collapse line="411" />
+			<Collapse line="417" />
+			<Collapse line="421" />
+			<Collapse line="426" />
+			<Collapse line="431" />
+			<Collapse line="436" />
+			<Collapse line="441" />
+			<Collapse line="448" />
+			<Collapse line="457" />
+			<Collapse line="464" />
+			<Collapse line="471" />
+			<Collapse line="542" />
+			<Collapse line="563" />
+			<Collapse line="570" />
+			<Collapse line="573" />
+			<Collapse line="575" />
+			<Collapse line="577" />
+			<Collapse line="582" />
+			<Collapse line="588" />
+			<Collapse line="592" />
+			<Collapse line="608" />
+			<Collapse line="614" />
+			<Collapse line="622" />
+			<Collapse line="647" />
+			<Collapse line="653" />
+			<Collapse line="655" />
+			<Collapse line="662" />
+			<Collapse line="721" />
+			<Collapse line="725" />
+			<Collapse line="735" />
+			<Collapse line="745" />
+			<Collapse line="755" />
+			<Collapse line="758" />
+			<Collapse line="801" />
+			<Collapse line="839" />
+			<Collapse line="874" />
+			<Collapse line="878" />
+			<Collapse line="882" />
+			<Collapse line="919" />
+			<Collapse line="929" />
+			<Collapse line="939" />
+			<Collapse line="941" />
+			<Collapse line="1089" />
+			<Collapse line="1106" />
+			<Collapse line="1110" />
+			<Collapse line="1120" />
+			<Collapse line="1124" />
+			<Collapse line="1134" />
+			<Collapse line="1138" />
+			<Collapse line="1148" />
+			<Collapse line="1153" />
+			<Collapse line="1163" />
+			<Collapse line="1165" />
+			<Collapse line="1177" />
+			<Collapse line="1179" />
+			<Collapse line="1191" />
+			<Collapse line="1195" />
+			<Collapse line="1205" />
+			<Collapse line="1207" />
+			<Collapse line="1219" />
+			<Collapse line="1223" />
+			<Collapse line="1236" />
+			<Collapse line="1241" />
+			<Collapse line="1244" />
+			<Collapse line="1305" />
+			<Collapse line="1311" />
+			<Collapse line="1321" />
+			<Collapse line="1326" />
+			<Collapse line="1335" />
+			<Collapse line="1371" />
+		</Folding>
+	</File>
 	<File name="Current.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="433" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Charge.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Charge.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1988" topLine="11" />
+			<Cursor1 position="1988" topLine="5" />
 		</Cursor>
 		<Folding>
 			<Collapse line="5" />
@@ -21,25 +146,22 @@
 			<Collapse line="51" />
 		</Folding>
 	</File>
-	<File name="main.cpp" open="1" top="1" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="GLQuad.hpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="544" topLine="0" />
+			<Cursor1 position="278" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Greens.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Current.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="326" topLine="0" />
+			<Cursor1 position="1351" topLine="0" />
 		</Cursor>
-	</File>
-	<File name="Charge.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1172" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="Current.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="388" topLine="4" />
-		</Cursor>
+		<Folding>
+			<Collapse line="10" />
+			<Collapse line="35" />
+			<Collapse line="41" />
+			<Collapse line="55" />
+			<Collapse line="66" />
+		</Folding>
 	</File>
 	<File name="EMConst.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>

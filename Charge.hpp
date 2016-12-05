@@ -2,6 +2,7 @@
 #define CHARGE_HPP_INCLUDED
 #include <cmath>
 #include "EMConst.hpp"
+#include "Array2D.hpp"
 
 std::complex<double> Greens(double k0, double r);
 void GradGreensr(std::complex<double> dGdr_r[3], double k0, double r);
@@ -21,8 +22,11 @@ public:
     Charge(double Q);
     Charge(double Q, double x, double y, double z);
     Charge(double Q, double k, double x, double y, double z);
-
-
+    void SetXYZ(double x0, double y0, double z0);
+    void SetQ(double Q);
+    double Getx0() const;
+    double Gety0() const;
+    double Getz0() const;
     void GetUnit_R(double r[3], double x, double y, double z);
     // this function calculates the unit vector pointing from (mx0, my0, mz0) to (x, y, z) and it returns an array
     double GetR(double x, double y, double z);
@@ -31,8 +35,26 @@ public:
     // this calculates the gradient of Greens function as a complex vector
     void GetE(std::complex<double> output[3], double x, double y, double z);
     // this function calculates the E field as a complex vector at ( x, y, z )
-    double GetQ();
+    double GetQ() const;
     double* returnQ();
+};
+
+class SquareCharge
+{
+private:
+    Charge* mCharge; // the charges in a square
+    Array2D m_xyz_c;
+    int mnt;  // the resolution
+    int mdir;  // direction of the square face, reference to AbsAndWtsSquare()
+    double mdl;
+    double mk0;
+public:
+    int GetChargeNumber() const;
+    SquareCharge();
+    SquareCharge(int nt);
+
+    ~SquareCharge();
+    friend std::ostream& operator<<(std::ostream& output, const SquareCharge& SqrCharge);
 };
 
 #endif // CHARGE_HPP_INCLUDED

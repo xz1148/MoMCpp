@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1480818267 source:/home/xt/Documents/momcpp/main.cpp
+1480899990 source:/home/xt/Documents/momcpp/main.cpp
 	<iostream>
 	"Charge.hpp"
 	"PrintArray.hpp"
@@ -7,13 +7,15 @@
 	"GLQuad.hpp"
 	"Array2D.hpp"
 
-1480797627 /home/xt/Documents/momcpp/Charge.hpp
+1480900718 /home/xt/Documents/momcpp/Charge.hpp
 	<cmath>
 	"EMConst.hpp"
+	"Array2D.hpp"
 
-1480797627 source:/home/xt/Documents/momcpp/Charge.cpp
+1480900909 source:/home/xt/Documents/momcpp/Charge.cpp
 	"Charge.hpp"
 	"Greens.hpp"
+	"GLQuad.hpp"
 	<iostream>
 
 1480797627 /home/xt/Documents/momcpp/EMConst.hpp
@@ -79,7 +81,7 @@
 
 1480797627 /home/xt/Documents/momcpp/PrintArray.hpp
 
-1480818231 source:/home/xt/Documents/momcpp/GLQuad.cpp
+1480891919 source:/home/xt/Documents/momcpp/GLQuad.cpp
 	"GLQuad.hpp"
 	"Array2D.hpp"
 	<cassert>
@@ -94,10 +96,10 @@
 	<cstring>
 	"Array2D.hpp"
 
-1480818145 source:/home/xt/Documents/momcpp/Array2D.cpp
+1480894210 source:/home/xt/Documents/momcpp/Array2D.cpp
 	"Array2D.hpp"
 	<cassert>
 
-1480818149 /home/xt/Documents/momcpp/Array2D.hpp
+1480893981 /home/xt/Documents/momcpp/Array2D.hpp
 	<iostream>
 

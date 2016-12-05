@@ -3,17 +3,91 @@
 #include <cassert>
 
 using namespace std;
+
+
 //this file includs the necessary functions to calculate abssicas of Gaussian
 //Legendre Integration
 void AbsAndWtsSquare(int nt, double dl, int direction, const Array2D& xyz_c, Array2D& xyz_out,
                      Array2D& wts)
+// nt: number of points at one dimension
+// dl: the edge length of the square
+// direction: 1, square in xy plane;
+//            2. square in yz plane;
+//            3. square in xz plane;
+// xyz_c: 1*3 array, the center coordiante of square
+// xyz_out: the output of all sample points
+// wts: weights of all these points
+
 {
     assert(xyz_c.GetDim1() == 1);
     assert(xyz_c.GetDim2() == 3);  // the xyz_c should be a 1*3 vector
     assert(xyz_out.GetDim1() == nt * nt);
     assert(xyz_out.GetDim2() == 3);
     assert(wts.GetDim1() == 1);
-    assert(wts.GetDim2() == 3);  // check the input
+    assert(wts.GetDim2() == nt*nt);  // check the input
+    double x_start = xyz_c.GetData(0,0) - dl/2.0;
+    double x_end = xyz_c.GetData(0,0) + dl/2.0;
+    double y_start = xyz_c.GetData(0,1) - dl/2.0;
+    double y_end = xyz_c.GetData(0,1) + dl/2.0;
+    double z_start = xyz_c.GetData(0,2) - dl/2.0;
+    double z_end = xyz_c.GetData(0,2) + dl/2.0;
+
+    if (direction == 1) // in xy-plane
+    {
+        double x_abs[nt]; // the abssicas at x direction
+        double y_abs[nt]; // the abssicas at y direction
+        double x_wts[nt]; // weights
+        double y_wts[nt];
+        AbsAndWtsAB(nt, x_start, x_end, x_abs, x_wts);
+        cout << x_start << endl;
+        AbsAndWtsAB(nt, y_start, y_end, y_abs, y_wts);
+        for (int i=0; i<nt; i++)
+        {
+            for (int j=0; j<nt; j++)
+            {
+                xyz_out[i*nt + j][0] = x_abs[i];
+                xyz_out[i*nt + j][1] = y_abs[j];
+                wts[0][i*nt + j] = x_wts[i] * y_wts[j];
+            }
+        }
+    }
+    else if (direction == 2)  //in yz plane
+    {
+        double y_abs[nt]; // the abssicas at x direction
+        double z_abs[nt]; // the abssicas at y direction
+        double y_wts[nt]; // weights
+        double z_wts[nt];
+        AbsAndWtsAB(nt, y_start, y_end, y_abs, y_wts);
+        AbsAndWtsAB(nt, z_start, z_end, z_abs, z_wts);
+        for (int i=0; i<nt; i++)
+        {
+            for (int j=0; j<nt; j++)
+            {
+                xyz_out[i*nt + j][1] = y_abs[i];
+                xyz_out[i*nt + j][2] = z_abs[j];
+                wts[0][i*nt + j] = y_wts[i] * z_wts[j];
+            }
+        }
+    }
+    else if (direction == 3)  //in yz plane
+    {
+        double x_abs[nt]; // the abssicas at x direction
+        double z_abs[nt]; // the abssicas at y direction
+        double x_wts[nt]; // weights
+        double z_wts[nt];
+        AbsAndWtsAB(nt, x_start, x_end, x_abs, x_wts);
+        AbsAndWtsAB(nt, z_start, z_end, z_abs, z_wts);
+        for (int i=0; i<nt; i++)
+        {
+            for (int j=0; j<nt; j++)
+            {
+                xyz_out[i*nt + j][0] = x_abs[i];
+                xyz_out[i*nt + j][2] = z_abs[j];
+                wts[0][i*nt + j] = x_wts[i] * z_wts[j];
+            }
+        }
+    }
+
 }
 
 

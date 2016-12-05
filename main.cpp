@@ -62,19 +62,38 @@ int main()
 //    cout << sum << endl;
 //    double a = {{1,2},{2,3}};
 
-    int nt = 2;
-    double dl = 0.5;
-    int direction = 1;
-    Array2D xyz_c(1,3);
-    Array2D xyz_out(4,3);
-    Array2D wts(1,3);
-    AbsAndWtsSquare(nt, dl, direction, xyz_c, xyz_out, wts);
-
-    Array2D x(5,3);
-
-
-    x[4][1] = 2.0;
-    cout << x << endl;
+//    int nt = 5;
+//    double dl = 0.25;
+//    int direction = 2;
+//    Array2D xyz_c(1,3);
+//    xyz_c[0][0] = 0;
+//    xyz_c[0][1] = 1;
+//    xyz_c[0][2] = 3;
+//    Array2D xyz_out(nt*nt,3);
+//    Array2D xyz_out2(nt*nt, 3);
+//
+//
+//
+//
+//    Array2D wts(1, nt*nt);
+//    for (int i=0; i<1; i++)
+//    {
+//        AbsAndWtsSquare(nt, dl, direction, xyz_c, xyz_out, wts);
+//    }
+//    xyz_out2 = xyz_out;
+//    double sum;
+//    for (int i=0; i<nt*nt; i++)
+//    {
+//        sum+=wts[0][i];
+//    }
+//    xyz_out[1][1] = 3.0;
+//    cout << sum << endl;
+//    cout << xyz_out2[1][1] << endl;
+//    cout << xyz_out[1][1] << endl;
+//    cout << endl;
+//    cout << xyz_c << endl;
+////    cout << x+3.0 << endl << flush;
+   // cout << x[2][2] << endl << flush;
 //    cout << x << endl;
 
 //    double** x;
@@ -90,6 +109,7 @@ int main()
 //        delete[] x[i];
 //    }
 //    delete[] x;
-
+    SquareCharge sqc1(3);
+    cout << sqc1 << endl;
     return 0;
 }

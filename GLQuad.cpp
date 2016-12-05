@@ -39,7 +39,6 @@ void AbsAndWtsSquare(int nt, double dl, int direction, const Array2D& xyz_c, Arr
         double x_wts[nt]; // weights
         double y_wts[nt];
         AbsAndWtsAB(nt, x_start, x_end, x_abs, x_wts);
-        cout << x_start << endl;
         AbsAndWtsAB(nt, y_start, y_end, y_abs, y_wts);
         for (int i=0; i<nt; i++)
         {
@@ -47,6 +46,7 @@ void AbsAndWtsSquare(int nt, double dl, int direction, const Array2D& xyz_c, Arr
             {
                 xyz_out[i*nt + j][0] = x_abs[i];
                 xyz_out[i*nt + j][1] = y_abs[j];
+                xyz_out[i*nt + j][2] = xyz_c.GetData(0,2);
                 wts[0][i*nt + j] = x_wts[i] * y_wts[j];
             }
         }
@@ -63,6 +63,7 @@ void AbsAndWtsSquare(int nt, double dl, int direction, const Array2D& xyz_c, Arr
         {
             for (int j=0; j<nt; j++)
             {
+                xyz_out[i*nt + j][0] = xyz_c.GetData(0,0);
                 xyz_out[i*nt + j][1] = y_abs[i];
                 xyz_out[i*nt + j][2] = z_abs[j];
                 wts[0][i*nt + j] = y_wts[i] * z_wts[j];
@@ -82,6 +83,7 @@ void AbsAndWtsSquare(int nt, double dl, int direction, const Array2D& xyz_c, Arr
             for (int j=0; j<nt; j++)
             {
                 xyz_out[i*nt + j][0] = x_abs[i];
+                xyz_out[i*nt + j][1] = xyz_c.GetData(0,1);
                 xyz_out[i*nt + j][2] = z_abs[j];
                 wts[0][i*nt + j] = x_wts[i] * z_wts[j];
             }
@@ -108,7 +110,7 @@ void AbsAndWtsAB(int nt, double A, double B, double t[], double wts[])
     AbsAndWts(nt, t0, wts0);
     for (int i=0; i < nt; i++)
     {
-        t[i] += mid_p + 0.5*len_AB*t0[i];
+        t[i] = mid_p + 0.5*len_AB*t0[i];
         wts[i] = wts0[i]/2.0 * len_AB;
     }
 

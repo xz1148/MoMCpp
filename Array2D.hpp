@@ -12,7 +12,6 @@ public:
     Array2D();
     Array2D(const Array2D& otherArray);
     Array2D(int dim1, int dim2);
-
     ~Array2D();  //destructor
     int GetDim1() const;
     int GetDim2() const;

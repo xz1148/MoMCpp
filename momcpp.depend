@@ -22,42 +22,46 @@
 	<cmath>
 	<complex>
 
-1480605106 source:/home/xt/Documents/MoMcpp/Charge.cpp
+1480962019 source:/home/xt/Documents/MoMcpp/Charge.cpp
 	"Charge.hpp"
 	"Greens.hpp"
+	"GLQuad.hpp"
 	<iostream>
 
-1480596581 /home/xt/Documents/MoMcpp/Charge.hpp
+1480960701 /home/xt/Documents/MoMcpp/Charge.hpp
 	<cmath>
 	"EMConst.hpp"
+	"Array2D.hpp"
 
-1480523724 /home/xt/Documents/MoMcpp/EMConst.hpp
+1480944394 /home/xt/Documents/MoMcpp/EMConst.hpp
 	<cmath>
 	<complex>
 
-1480607945 source:/home/xt/Documents/MoMcpp/main.cpp
+1480962434 source:/home/xt/Documents/MoMcpp/main.cpp
 	<iostream>
 	"Charge.hpp"
 	"PrintArray.hpp"
 	"Current.hpp"
+	"GLQuad.hpp"
+	"Array2D.hpp"
 
-1480594887 /home/xt/Documents/MoMcpp/PrintArray.hpp
+1480944394 /home/xt/Documents/MoMcpp/PrintArray.hpp
 
-1480608783 source:/home/xt/Documents/MoMcpp/Current.cpp
+1480944394 source:/home/xt/Documents/MoMcpp/Current.cpp
 	"Current.hpp"
 	"Greens.hpp"
 	<cmath>
 	<iostream>
 	"EMConst.hpp"
 
-1480607198 /home/xt/Documents/MoMcpp/Current.hpp
+1480944394 /home/xt/Documents/MoMcpp/Current.hpp
 	<complex>
 
-1480604710 /home/xt/Documents/MoMcpp/Greens.hpp
+1480944394 /home/xt/Documents/MoMcpp/Greens.hpp
 	<cmath>
 	<complex>
 
-1480605506 source:/home/xt/Documents/MoMcpp/Greens.cpp
+1480944394 source:/home/xt/Documents/MoMcpp/Greens.cpp
 	"Greens.hpp"
 	<cmath>
 
@@ -102,4 +106,26 @@
 
 1480893981 /home/xt/Documents/momcpp/Array2D.hpp
 	<iostream>
+
+1480944394 source:/home/xt/Documents/MoMcpp/Array2D.cpp
+	"Array2D.hpp"
+	<cassert>
+
+1480957144 /home/xt/Documents/MoMcpp/Array2D.hpp
+	<iostream>
+
+1480944394 /home/xt/Documents/MoMcpp/GLQuad.hpp
+	<cstdlib>
+	<cmath>
+	<iostream>
+	<fstream>
+	<iomanip>
+	<ctime>
+	<cstring>
+	"Array2D.hpp"
+
+1480958706 source:/home/xt/Documents/MoMcpp/GLQuad.cpp
+	"GLQuad.hpp"
+	"Array2D.hpp"
+	<cassert>
 

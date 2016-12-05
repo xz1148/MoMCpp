@@ -77,6 +77,11 @@ void Charge::SetQ(double Q)
     mQ = Q;
 }
 
+void Charge::Setk0(double k0)
+{
+    mk0 = k0;
+}
+
 void Charge::GetUnit_R(double r[3], double x, double y, double z)
 {
     double r_x = x - mx0;
@@ -122,6 +127,8 @@ void Charge::Grad_Greens_r(std::complex<double> output[3], double x, double y, d
 
 void Charge::GetE(std::complex<double> output[3], double x, double y, double z)
 {
+//    std::cout << mQ <<  std::endl << std::flush;
+//    std::cout << GetQ() << std::endl << std::flush;
     double RightSide = -mQ / EPS0; // the right hand side of PDE
     std::complex<double> Grad_G_ur[3];
     Grad_Greens_r(Grad_G_ur, x, y, z); // complex vector
@@ -131,23 +138,23 @@ void Charge::GetE(std::complex<double> output[3], double x, double y, double z)
 }
 
 
-SquareCharge::SquareCharge():m_xyz_c(1,3)
+SquareCharge::SquareCharge():m_xyz_c(1,3), mnt(2)
 {
-    mnt = 2;
-//    m_xyz_c(1,3);
+    int N_charges = mnt*mnt;
     mdl = 1.0;
     mdir = 1;
     mk0 = 1.0;
-
+    mQ = 1.0;
     m_xyz_c[0][0] = 0.0;m_xyz_c[0][1] = 0.0;m_xyz_c[0][1] = 0.0;
     Array2D Charge_xyz_Temp(mnt*mnt, 3);  //stores the coordinate of charges
     Array2D Charge_Wts(1, mnt*mnt);  // stores the weights of charges
     AbsAndWtsSquare(mnt, mdl, mdir, m_xyz_c, Charge_xyz_Temp, Charge_Wts); //calculates all the xyzs
-    mCharge = new Charge [mnt*mnt];
+    mCharge = new Charge [N_charges];
     for (int i=0; i<mnt*mnt; i++)
     {
         mCharge[i].SetXYZ(Charge_xyz_Temp[i][0], Charge_xyz_Temp[i][1], Charge_xyz_Temp[i][2]);
-        mCharge[i].SetQ(Charge_Wts[0][i]);
+        mCharge[i].SetQ(mQ*Charge_Wts[0][i]);
+        mCharge[i].Setk0(mk0);
     }
 }
 
@@ -158,6 +165,7 @@ SquareCharge::SquareCharge(int nt):m_xyz_c(1,3)
     mdl = 1.0;
     mdir = 1;
     mk0 = 1.0;
+    mQ = 1.0;
 
     m_xyz_c[0][0] = 0.0;m_xyz_c[0][1] = 0.0;m_xyz_c[0][1] = 0.0;
     Array2D Charge_xyz_Temp(mnt*mnt, 3);  //stores the coordinate of charges
@@ -167,30 +175,113 @@ SquareCharge::SquareCharge(int nt):m_xyz_c(1,3)
     for (int i=0; i<mnt*mnt; i++)
     {
         mCharge[i].SetXYZ(Charge_xyz_Temp[i][0], Charge_xyz_Temp[i][1], Charge_xyz_Temp[i][2]);
-        mCharge[i].SetQ(Charge_Wts[0][i]);
+        mCharge[i].SetQ(mQ*Charge_Wts[0][i]);
+        mCharge[i].Setk0(mk0);
     }
 }
+
+SquareCharge::SquareCharge(int nt, int dir, double dl, double k0, double Q):m_xyz_c(1,3)
+{
+    mnt = nt;
+    mdir = dir;
+    mdl = dl;
+    mk0 = k0;
+    mQ = Q;
+    m_xyz_c[0][0] = 0.0;m_xyz_c[0][1] = 0.0;m_xyz_c[0][1] = 0.0;
+    Array2D Charge_xyz_Temp(mnt*mnt, 3);  //stores the coordinate of charges
+    Array2D Charge_Wts(1, mnt*mnt);  // stores the weights of charges
+    AbsAndWtsSquare(mnt, mdl, mdir, m_xyz_c, Charge_xyz_Temp, Charge_Wts); //calculates all the xyzs
+    mCharge = new Charge [mnt*mnt];
+    for (int i=0; i<mnt*mnt; i++)
+    {
+        mCharge[i].SetXYZ(Charge_xyz_Temp[i][0], Charge_xyz_Temp[i][1], Charge_xyz_Temp[i][2]);
+        mCharge[i].SetQ(mQ*Charge_Wts[0][i]);
+        mCharge[i].Setk0(mk0);
+    }
+
+}
+
+SquareCharge::SquareCharge(int nt,
+                           int dir,
+                           double dl,
+                           double k0,
+                           double Q,
+                           double x0,
+                           double y0,
+                           double z0):m_xyz_c(1,3)
+{
+    mnt = nt;
+    mdir = dir;
+    mdl = dl;
+    mk0 = k0;
+    mQ = Q;
+    m_xyz_c[0][0] = x0;m_xyz_c[0][1] = y0;m_xyz_c[0][2] = z0;
+    Array2D Charge_xyz_Temp(mnt*mnt, 3);  //stores the coordinate of charges
+    Array2D Charge_Wts(1, mnt*mnt);  // stores the weights of charges
+    AbsAndWtsSquare(mnt, mdl, mdir, m_xyz_c, Charge_xyz_Temp, Charge_Wts); //calculates all the xyzs
+    mCharge = new Charge [mnt*mnt];
+    for (int i=0; i<mnt*mnt; i++)
+    {
+        mCharge[i] = Charge();
+        mCharge[i].SetXYZ(Charge_xyz_Temp[i][0], Charge_xyz_Temp[i][1], Charge_xyz_Temp[i][2]);
+        mCharge[i].SetQ(mQ*Charge_Wts[0][i]);
+    }
+}
+
+
 
 int SquareCharge::GetChargeNumber() const
 {
     return mnt*mnt;
 }
 
+void SquareCharge::GetE(std::complex<double> output[3], const Array2D& xyz)
+{
+    int N_charge = mnt*mnt;
+    double x = xyz.GetData(0,0);
+    double y = xyz.GetData(0,1);
+    double z = xyz.GetData(0,2);
+    std::complex<double> E_temp[3];
+    std::complex<double> E_sum[3];
+    for (int i=0; i<3; i++)
+    {
+        E_temp[i] = std::complex<double>(0.0, 0.0);
+        E_sum[i] = std::complex<double>(0.0, 0.0);
+    }
+
+    for (int i=0; i<N_charge; i++)
+    {
+        mCharge[i].GetE(E_temp, x, y, z);
+        E_sum[0] += E_temp[0];
+        E_sum[1] += E_temp[1];
+        E_sum[2] += E_temp[2];
+    }
+    output[0] = E_sum[0]; output[1] =  E_sum[1]; output[2] = E_sum[2];
+}
+
 std::ostream& operator<<(std::ostream& output, const SquareCharge& SqrCharge)
 {
+    double Q_sum = 0.0;
+    int ChargeNumber = SqrCharge.GetChargeNumber();
     output << "The square contains " << SqrCharge.GetChargeNumber() << " Charges:" << std::endl;
     output << "The coordinate of the charges are: " << std::endl;
-    for (int i=0; i<SqrCharge.GetChargeNumber(); i++)
+    for (int i=0; i<ChargeNumber; i++)
     {
         output << SqrCharge.mCharge[i].Getx0() << ", ";
         output << SqrCharge.mCharge[i].Gety0() << ", ";
         output << SqrCharge.mCharge[i].Getz0() << std::endl;
     }
     output << "And the charges are:" << std::endl;
-    for (int i=0; i<SqrCharge.GetChargeNumber(); i++)
+    for (int i=0; i<ChargeNumber; i++)
     {
         output << SqrCharge.mCharge[i].GetQ() << std::endl;
     }
+    for (int i=0; i<ChargeNumber; i++)
+    {
+        Q_sum = Q_sum + SqrCharge.mCharge[i].GetQ();
+    }
+    output << "And the total charge is: " << Q_sum << std::endl;
+
     return output;
 }
 

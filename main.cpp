@@ -11,9 +11,7 @@ using namespace std;
 
 int main()
 {
-//    double freq = 300e6;
-//    double omega = 2*PI*freq;
-//    double k0 = omega * std::sqrt(MU0 * EPS0);
+
 //    double x0 = 1.0;
 //    double y0 = 1.0;
 //    double z0 = 1.0;
@@ -109,7 +107,35 @@ int main()
 //        delete[] x[i];
 //    }
 //    delete[] x;
-    SquareCharge sqc1(3);
+
+    double freq = 300e6;
+    double omega = 2*PI*freq;
+    double k0 = omega * std::sqrt(MU0 * EPS0);
+    int nt = 4;
+    int dir = 1;
+    double dl = 0.015;
+    double Q = 1.0;
+    double x = 0.0;
+    double y = 0.0;
+    double z = 0.0;
+    SquareCharge sqc1(nt, dir, dl, k0, Q, x, y, z);
+    Charge sc1(dl*dl, k0, x, y, z);
+    Array2D xyz_E(1,3);
+    xyz_E[0][0] = 0.0; xyz_E[0][1] = 0.0; xyz_E[0][2] = 3.0;
+
+    complex<double> cplx[3];
+    complex<double> cplx1[3];
+
+    sqc1.GetE(cplx, xyz_E);
+    sc1.GetE(cplx1, xyz_E[0][0], xyz_E[0][1], xyz_E[0][2]);
+    for (int i=0; i<3; i++)
+    {
+        cout << cplx[i] << endl;
+        cout << cplx1[i] << endl;
+    }
     cout << sqc1 << endl;
+
+//    cout << cplx[0] << endl;
+//    cout << sqc1 << endl;
     return 0;
 }

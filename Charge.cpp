@@ -222,9 +222,9 @@ SquareCharge::SquareCharge(int nt,
     mCharge = new Charge [mnt*mnt];
     for (int i=0; i<mnt*mnt; i++)
     {
-        mCharge[i] = Charge();
         mCharge[i].SetXYZ(Charge_xyz_Temp[i][0], Charge_xyz_Temp[i][1], Charge_xyz_Temp[i][2]);
         mCharge[i].SetQ(mQ*Charge_Wts[0][i]);
+        mCharge[i].Setk0(mk0);
     }
 }
 

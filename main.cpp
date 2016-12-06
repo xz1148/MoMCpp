@@ -107,33 +107,61 @@ int main()
 //        delete[] x[i];
 //    }
 //    delete[] x;
-
-    double freq = 300e6;
+    double freq = 100e6;
     double omega = 2*PI*freq;
     double k0 = omega * std::sqrt(MU0 * EPS0);
-    int nt = 4;
+    int nt = 10;
     int dir = 1;
-    double dl = 0.015;
+    double dl = 0.02;
     double Q = 1.0;
-    double x = 0.0;
-    double y = 0.0;
-    double z = 0.0;
-    SquareCharge sqc1(nt, dir, dl, k0, Q, x, y, z);
+    double x = 1.0;
+    double y = 2.0;
+    double z = 3.0;
+//    SquareCharge sqc1(nt, dir, dl, k0, Q, x, y, z);
     Charge sc1(dl*dl, k0, x, y, z);
     Array2D xyz_E(1,3);
-    xyz_E[0][0] = 0.0; xyz_E[0][1] = 0.0; xyz_E[0][2] = 3.0;
-
+    xyz_E[0][0] = 1.0; xyz_E[0][1] = 2.0; xyz_E[0][2] = 3+dl/2;
     complex<double> cplx[3];
     complex<double> cplx1[3];
+    complex<double> cplx2[3];
+    complex<double> cplx3[3];
+    complex<double> cplx4[3];
 
-    sqc1.GetE(cplx, xyz_E);
+
     sc1.GetE(cplx1, xyz_E[0][0], xyz_E[0][1], xyz_E[0][2]);
+//    for (int i = 0; i<500000; i++)
+//    {
+    CubeCurrent cbc1(1.0,k0,0,0,0,0,0,1,dl);
+    SquareCharge sqc1(nt, dir, dl, k0, Q, x, y, z);
+    sqc1.GetE(cplx, xyz_E);
+    cbc1.GetRemoteE(cplx2, xyz_E[0][0], xyz_E[0][1], xyz_E[0][2]);
+//    }
+
+//    CubeCurrent cbc1(1.0,k0,0,0,0,3,0,0,dl);
+    Current c1(1.0, k0, 0,0,0,0,0,1);
+    c1.GetE(cplx3, xyz_E[0][0], xyz_E[0][1], xyz_E[0][2]);
+    cbc1.GetLocalE(cplx4);
     for (int i=0; i<3; i++)
     {
-        cout << cplx[i] << endl;
-        cout << cplx1[i] << endl;
+        cout << setprecision(15) << cplx1[i] << endl;
+//        cout << setprecision(15) << cplx1[i] << endl;
+//        cout << setprecision(15) << cplx2[i] << endl;
     }
-    cout << sqc1 << endl;
+    for (int i=0; i<3; i++)
+    {
+        cout << setprecision(15) << cplx2[i] << endl;
+    }
+    for (int i=0; i<3; i++)
+    {
+        cout << setprecision(15) << cplx3[i]*dl*dl*dl << endl;
+    }
+    for (int i=0; i<3; i++)
+    {
+        cout << setprecision(15) << cplx4[i] << endl;
+    }
+
+//    cout << sqc1 << endl;
+//    cout << sqc1 << endl;
 
 //    cout << cplx[0] << endl;
 //    cout << sqc1 << endl;
